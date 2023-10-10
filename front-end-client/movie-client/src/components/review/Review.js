@@ -2,6 +2,7 @@ import {useEffect, useRef} from 'react';
 import api from '../../api/axiosConfig';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
+import axios from'axios'
 
 import React from 'react'
 import ReviewForm from '../reviewForm/reviewForm';
@@ -14,8 +15,10 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
     const movieId = params.movieId;
     const localreviews =reviews ||[]
 
-    useEffect(()=>{
-        getMovieData(movieId);
+    
+
+    useEffect(() =>{
+        getMovieData(movieId);     
     },[])
 
     const addReview = async (e) =>{
@@ -68,7 +71,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
                     </>
                 }
                 {
-                    reviews?.map((r) => {
+                    localreviews?.map((r) => {
                         return(
                             <>
                                 <Row>
