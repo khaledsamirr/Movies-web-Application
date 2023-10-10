@@ -9,7 +9,7 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1/movies")
+@RequestMapping("/api/v1/reviews")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;

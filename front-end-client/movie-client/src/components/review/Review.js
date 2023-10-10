@@ -12,6 +12,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
     const revText = useRef();
     let params = useParams();
     const movieId = params.movieId;
+    const localreviews =reviews ||[]
 
     useEffect(()=>{
         getMovieData(movieId);
@@ -26,7 +27,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
         {
             const response = await api.post("/api/v1/reviews",{reviewBody:rev.value,imdbId:movieId});
 
-            const updatedReviews = [...reviews, {body:rev.value}];
+            const updatedReviews = [...localreviews, {body:rev.value}];
     
             rev.value = "";
     
